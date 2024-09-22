@@ -77,6 +77,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', 'K', vim.diagnostic.open_float, { desc = 'Open float' })
 
 -- Exit terminal mode with double escape.
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -473,6 +474,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         go = { 'gofmt' },
+        tex = { 'latexindent' },
         lua = { 'stylua' },
         javascript = { 'prettierd' },
       },
@@ -710,6 +712,7 @@ require('lazy').setup({
     init = function()
       -- VimTeX configuration goes here, e.g.
       vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_quickfix_open_on_warning = 0
     end,
   },
   --  Here are some example plugins that I've included in the Kickstart repository.

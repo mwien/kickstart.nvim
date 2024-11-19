@@ -13,7 +13,7 @@ vim.g.have_nerd_font = true
 -- Make line numbers default
 vim.opt.number = true
 -- Alternatively, choose relative line numbers
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -473,10 +473,14 @@ require('lazy').setup({
         }
       end,
       formatters_by_ft = {
+        css = { 'stylelint' },
+        elixir = { 'mix' },
         go = { 'gofmt' },
-        tex = { 'latexindent' },
-        lua = { 'stylua' },
+        html = { 'prettierd' },
         javascript = { 'prettierd' },
+        lua = { 'stylua' },
+        python = { 'black' },
+        tex = { 'latexindent' },
       },
     },
   },
@@ -715,6 +719,44 @@ require('lazy').setup({
       vim.g.vimtex_quickfix_open_on_warning = 0
     end,
   },
+
+  {
+    'tris203/precognition.nvim',
+    --event = "VeryLazy",
+    opts = {
+      -- startVisible = true,
+      -- showBlankVirtLine = true,
+      -- highlightColor = { link = "Comment" },
+      -- hints = {
+      --      Caret = { text = "^", prio = 2 },
+      --      Dollar = { text = "$", prio = 1 },
+      --      MatchingPair = { text = "%", prio = 5 },
+      --      Zero = { text = "0", prio = 1 },
+      --      w = { text = "w", prio = 10 },
+      --      b = { text = "b", prio = 9 },
+      --      e = { text = "e", prio = 8 },
+      --      W = { text = "W", prio = 7 },
+      --      B = { text = "B", prio = 6 },
+      --      E = { text = "E", prio = 5 },
+      -- },
+      -- gutterHints = {
+      --     G = { text = "G", prio = 10 },
+      --     gg = { text = "gg", prio = 9 },
+      --     PrevParagraph = { text = "{", prio = 8 },
+      --     NextParagraph = { text = "}", prio = 8 },
+      -- },
+      -- disabled_fts = {
+      --     "startify",
+      -- },
+    },
+  },
+
+  {
+    'm4xshen/hardtime.nvim',
+    dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
+    opts = {},
+  },
+
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
